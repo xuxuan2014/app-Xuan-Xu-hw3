@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+  div.border {
+    background-color: #FEEEDC;
+    text-align: center;
+    border: 6px solid;
+    border-color: #3A62DE;
+    border-radius: 12px;
+    width: 550px;
+    margin:100px auto;
+  }
+
+  div.contents {
+    margin-top: 65px;
+    margin-bottom: 20px; 
+  }
+
+  div {
+    text-align: right;
+    margin-bottom: 25px;
+    margin-right:40px;
+  }
+
+	label {
+    margin: 5px;
+    color: #1F61C5;
+    font-family: arial;
+    font-size: 20px;
+  }
+
+ input {
+    border: 1px solid green;
+    padding:  0px -0.5px 0px 12px;
+    font-size: 20px;
+    left: 1px;
+  }
+
+  input.notes {
+    border: 1px solid green;
+    padding: 45px 1px;
+    vertical-align: top;
+  }
+
+
+  p.error {
+    color: black;
+    font-size: 20px;
+    font-family: arial;
+  }
+
+  button {
+    color:white;
+    background-color: #3A62DE;
+    font-family: Helvetica;
+    font-size: 18px;
+    padding: 4px 26px;
+    margin-top: 0px;
+    border: 1px solid;
+    border-color: #B3C4EA;
+    border-radius: 5px;
+  }
+
+
+
+</style>
+</head>
+<body>
+  <div class="border">
+    <div class="contents">
+      <div>
+        <label>First Name</label>
+        <input id = "fnInput" type="text" placeholder="First Name">
+      </div>
+
+
+    <div>
+      <label>Last Name</label>
+      <input id = "lnInput" type = "text" placeholder = "Last Name">
+    </div>
+
+    <div>
+      <label>Email Address</label>
+      <input id = "eaInput" type = "text" placeholder = "Email Address">
+    </div>
+
+    <div>
+      <label>Notes</label>
+      <input id = "nInput" class="notes" type = "text">
+    </div>
+
+    </div>
+
+    <button onclick="isEmpty()">Register</button> 
+    <p id="error" class="error"></p>
+  
+  </div>
+
+</body>
+
+<script>
+  function isEmpty() {
+    var fnValue = document.getElementById("fnInput");
+    var lnValue = document.getElementById("lnInput");
+    var eaValue = document.getElementById("eaInput");
+    var nValue = document.getElementById("nInput");
+    var error = document.getElementById("error");
+
+    if (fnValue.value == "") {
+      error.innerHTML = "First Name cannot be empty";
+      error.style.color = "red";
+    }
+    if (lnValue.value == "") {
+      error.innerHTML = "Last Name cannot be empty";
+      error.style.color = "red";
+    }
+    if (eaValue.value == "") {
+      error.innerHTML = "Email Address cannot be empty";
+      error.style.color = "red";
+    }
+    if (nValue.value == "") {
+      error.innerHTML = "Notes cannot be empty";
+      error.style.color = "red";
+    }
+
+    if (fnValue.value !="" && lnValue.value != "" && eaValue.value !="" && nValue.value != "") {
+      error.innerHTML = "Validation Successful";
+      error.style.color = "green";
+    }
+    
+  }
+</script>
+
+</html>
